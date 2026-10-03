@@ -9,6 +9,11 @@ authors:
     affiliation: "Spark AI NLP"
 version: 0.1.0
 date-released: "2026-10-02"
+doi: 10.5281/zenodo.23113851
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23113852
+    description: "Version DOI for v0.1.0 (Zenodo record 23113852)"
 license: AGPL-3.0-only
 repository-code: "https://github.com/sparkainlp-x/multi-quantum-oes"
 url: "https://sparkainlpx.xyz"

@@ -4,6 +4,7 @@
 
 [![tests](https://github.com/sparkainlp-x/multi-quantum-oes/actions/workflows/tests.yml/badge.svg)](https://github.com/sparkainlp-x/multi-quantum-oes/actions/workflows/tests.yml)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23113851.svg)](https://doi.org/10.5281/zenodo.23113851)
 [![Python 3.11–3.13](https://img.shields.io/badge/python-3.11%E2%80%933.13-blue.svg)](.github/workflows/tests.yml)
 [![Status: research prototype](https://img.shields.io/badge/status-research%20prototype-orange.svg)](#what-it-is-not)
 
@@ -181,7 +182,7 @@ This repository was rebuilt from files shared by Samsung Quick Share. Every file
 
 ## Citation
 
-See [CITATION.cff](CITATION.cff). A Zenodo DOI will be added here once the v0.1.0 release has been archived.
+See [CITATION.cff](CITATION.cff). Releases are archived on Zenodo under the concept DOI [10.5281/zenodo.23113851](https://doi.org/10.5281/zenodo.23113851), which covers all versions. Each release also gets its own version DOI on Zenodo; v0.1.0 is [10.5281/zenodo.23113852](https://doi.org/10.5281/zenodo.23113852).
 
 ## License
 

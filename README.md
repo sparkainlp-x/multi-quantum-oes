@@ -8,7 +8,7 @@
 [![Python 3.11–3.13](https://img.shields.io/badge/python-3.11%E2%80%933.13-blue.svg)](.github/workflows/tests.yml)
 [![Status: research prototype](https://img.shields.io/badge/status-research%20prototype-orange.svg)](#what-it-is-not)
 
-Version 0.1.0 is the first public release. It packages the original offline prototype together with:
+Version 0.1.0 was the first public release; 0.1.1 updates metadata and documentation only. The release packages the original offline prototype together with:
 
 - **hardening fixes,** each with a regression test (see [CHANGES.md](CHANGES.md));
 - **a preregistered [stress evaluation](#stress-evaluation),** whose result is negative: the block score does not beat a simple max-abs baseline;
@@ -134,7 +134,7 @@ $ python3 run.py intersection
 - **Chemical AI.** The H2 coefficients (0.735 Å, 2-qubit form) come from the Qiskit tutorials, Apache-2.0; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 - **Scope.** These are exact classical simulations of toy problems, not QPU runs, not evidence of quantum advantage, and not connected to the OES detector.
 
-`src/mqoes/quantum_lab.py` (the original three demos behind `run.py quantum`) is kept unchanged.
+`src/mqoes/quantum_lab.py` (the original three demos behind `run.py quantum`) is kept as a separate module. Its two small edits (full-unitary equivalence and a `math.fsum` change for cross-version reproducibility) are listed in [CHANGES.md](CHANGES.md); its report is unchanged.
 
 ## Tests
 
@@ -177,12 +177,38 @@ This repository was rebuilt from files shared by Samsung Quick Share. Every file
 
 ## Related work
 
+- **[oes32-hls](https://github.com/sparkainlp-x/oes32-hls)** ([concept DOI 10.5281/zenodo.22985525](https://doi.org/10.5281/zenodo.22985525)): a C++ HLS research prototype with a `g++` testbench and Python bindings; FPGA synthesis is **UNRUN**. Its streaming kernel `oes32_triage_accelerator` (v2 algorithm) is the reference implementation of OES32 triage. The Python `stream32` model here is a float-level model of the **earlier v1** branch logic, so it is not a model of that kernel. It differs in four ways:
+  - **Reset:** it applies reset once, before the first packet, and does not clamp it. The v2 kernel loads a clamped tau and its reset is level-sensitive.
+  - **Sign:** it uses the signed value, while v2 uses |value|.
+  - **Shock packets:** in this model they can raise tau; in v2 they cannot.
+  - **Gain:** this model uses η = 0.05 and leak 0.95; v2 uses fixed-point 1/16 steps.
+
+  See [RECONSTRUCTION_NOTES.md](RECONSTRUCTION_NOTES.md) and [CHANGES.md](CHANGES.md) (item 6).
 - **[oes-resilience](https://github.com/sparkainlp-x/oes-resilience)** ([DOI 10.5281/zenodo.23071166](https://doi.org/10.5281/zenodo.23071166)): an open, reproducible benchmark for multichannel telemetry anomaly detection, with OES32 as its transparent reference detector.
 - **[oes32-residual](https://github.com/sparkainlp-x/oes32-residual)** ([DOI 10.5281/zenodo.22985521](https://doi.org/10.5281/zenodo.22985521)): the normative OES-32 residual reference.
 
 ## Citation
 
-See [CITATION.cff](CITATION.cff). Releases are archived on Zenodo under the concept DOI [10.5281/zenodo.23113851](https://doi.org/10.5281/zenodo.23113851), which covers all versions. Each release also gets its own version DOI on Zenodo; v0.1.0 is [10.5281/zenodo.23113852](https://doi.org/10.5281/zenodo.23113852).
+See [CITATION.cff](CITATION.cff); GitHub shows a "Cite this repository" button. Releases are archived on Zenodo under the concept DOI [10.5281/zenodo.23113851](https://doi.org/10.5281/zenodo.23113851), which covers all versions. Each release also gets its own version DOI on Zenodo; v0.1.0 is [10.5281/zenodo.23113852](https://doi.org/10.5281/zenodo.23113852). Cite a version DOI when you need to refer to exact code.
+
+### How to cite
+
+APA:
+
+> Brisson, J.-F. (2026). *Multi-Quantum OES: Offline OES replay triage workbench with an isolated AI ∩ quantum toy lab* [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.23113851
+
+BibTeX:
+
+```bibtex
+@software{brisson_multi_quantum_oes,
+  author    = {Brisson, Jean-François},
+  title     = {{Multi-Quantum OES: offline OES replay triage workbench with an isolated AI ∩ quantum toy lab}},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.23113851},
+  url       = {https://doi.org/10.5281/zenodo.23113851}
+}
+```
 
 ## License
 

@@ -96,3 +96,18 @@ reproduce byte-for-byte.
   last-digit difference in one value of `reports/quantum-toys.json`. `math.fsum` is correctly
   rounded on every version; the committed report is unchanged and now reproduces byte for byte on
   3.11, 3.12 and 3.13.
+
+## 0.1.1 (2026-10-03): metadata and documentation only
+No code, data, preregistration or report changed; all reports still reproduce byte for byte.
+- `.zenodo.json`: a fuller description (what is included, negative results, limits), 15 keywords,
+  `language: eng`, the licence id `agpl-3.0-only` from Zenodo's vocabulary, a `notes` field, and
+  related identifiers: the repository (`isSupplementTo`), plus `references` to the Qiskit
+  Algorithms tutorial (H2 coefficients), oes32-hls (10.5281/zenodo.22985525), oes-resilience
+  (10.5281/zenodo.23071166) and oes32-residual. `references` is used because Zenodo's relation
+  vocabulary has no `isRelatedTo`.
+- `README.md`: a Related work section explains that oes32-hls holds the reference C++ triage
+  kernel (v2) and that `stream32` models the earlier v1 logic and differs from it. A How to cite
+  section gives APA and BibTeX for the concept DOI. A stale sentence that called `quantum_lab.py`
+  "unchanged" now points to its listed edits.
+- `CITATION.cff`: version 0.1.1, dated 2026-10-03, with updated keywords and an oes32-hls
+  reference.

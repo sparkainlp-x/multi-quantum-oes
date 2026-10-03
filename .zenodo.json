@@ -1,9 +1,9 @@
 {
   "title": "Multi-Quantum OES: offline OES replay triage workbench with an isolated AI ∩ quantum toy lab",
   "upload_type": "software",
-  "version": "0.1.0",
-  "publication_date": "2026-10-02",
-  "description": "<p>Offline, standard-library-only Python workbench for explainable OES-512 replay triage. A fixed block score (0.45&middot;max|x| + 0.35&middot;RMS + 0.20&middot;mean|x|) flags a block when it is &gt;= a preregistered threshold, and is reported alongside a per-block max-abs baseline. The workbench also includes a separate OES32 adaptive-tau stream model and 32-value residual check, offline outage-snapshot classification, metadata-only failure-capsule validation, and a loopback-only local web interface.</p><p>Version 0.1.0 adds hardening fixes with regression tests and a preregistered synthetic stress evaluation (a held-out split plus a separate calibration split). The stress result is negative: the block score does not beat the max-abs baseline at shared fixed thresholds or at thresholds calibrated to an equal false-positive rate. The release also adds a single module in which one exact statevector core powers four toy &ldquo;AI &cap; quantum&rdquo; applications: quantum-kernel classification (at chance on the toy data, versus a classical RBF baseline), QAOA MaxCut versus brute force, circuit compilation with full-unitary verification, and H2 VQE versus exact diagonalisation using coefficients attributed to the Qiskit tutorials (Apache-2.0).</p><p>Synthetic data only. Exact classical simulation, not QPU execution or evidence of quantum advantage, and not an operational system.</p>",
+  "version": "0.1.1",
+  "publication_date": "2026-10-03",
+  "description": "<p><strong>Multi-Quantum OES</strong> is an offline, standard-library-only Python (3.11&ndash;3.13) workbench for explainable OES-512 telemetry replay triage, with a preregistered synthetic stress evaluation and a separate, isolated &ldquo;AI &cap; quantum&rdquo; toy lab. Everything runs locally on <strong>synthetic data</strong>; the quantum parts are <strong>exact classical simulations, not QPU runs</strong>.</p><h3>What is included</h3><ul><li><strong>OES-512 replay triage.</strong> Each frame has 512 finite values in sixteen 32-value blocks. A fixed block score (0.45&middot;max|x| + 0.35&middot;RMS + 0.20&middot;mean|x|) flags a block when it is &ge; a preregistered threshold. It is reported next to a per-block max-abs baseline, with event recall, false-positive counts and episodes, block precision/recall/IoU, latency, ranked evidence, and SHA-256 hashes of the exact replay and protocol bytes. Thresholds come from a preregistration file and are never tuned by the CLI.</li><li><strong>Preregistered stress evaluation.</strong> Seeded generators produce a held-out test split and a separate calibration split (320 frames, 6 regimes, 11 labelled events each). Two protocols were locked before evaluation, a shared fixed threshold of 0.50 and thresholds calibrated on the calibration split to a 5% no-event false-positive rate, and a hash manifest records the data, preregistrations and tools.</li><li><strong>OES32 adaptive-tau stream model</strong> (float-level, models the earlier v1 triage branch logic; not bit-exact HLS), a 32-value residual check (fails only when R &gt; tolerance), offline outage-snapshot classification, metadata-only failure-capsule validation, and a loopback-only local web interface.</li><li><strong>AI &cap; quantum toy lab.</strong> One exact statevector core (gates, Pauli-sum observables, parameter-shift gradients, full-unitary equivalence) powers four small applications: quantum-kernel classification versus a classical RBF kernel, QAOA MaxCut versus brute force, circuit compilation with unitary verification, and H2 VQE versus exact diagonalisation (H2 coefficients from the Qiskit Algorithms tutorial, Apache-2.0). It never enters the telemetry scoring path.</li><li><strong>Reproducibility.</strong> 72 unit tests; CI on Python 3.11, 3.12 and 3.13 checks that every committed report regenerates byte for byte.</li></ul><h3>Results, including negative ones</h3><ul><li><strong>Stress evaluation: negative.</strong> At the shared 0.50 threshold the block score detected fewer events than the max-abs baseline (5/11 vs 8/11) with fewer false-positive frames (45/272 vs 81/272) but more false-positive episodes (26 vs 14). Calibrated to the same 5% false-positive rate, both detectors gave identical results (0/11 events, 17/272 false-positive frames). With only 11 invented events, none of these differences is statistically meaningful.</li><li><strong>Quantum kernel: at chance</strong> on the toy data (accuracy 0.531) versus 0.906 for a classical RBF kernel with an untuned &gamma;.</li><li>QAOA p=1 / p=2 reach approximation ratios 0.822 / 0.925 on a 5-node MaxCut; the compiler reduces a 15-gate circuit to 3 gates and catches a deliberately faulty compile; H2 VQE matches exact diagonalisation (|&Delta;| about 4e-16 Ha).</li></ul><h3>Limits</h3><ul><li>Synthetic data only; no real telemetry was used or inferred.</li><li>Exact classical simulation of 2&ndash;5 qubit toy problems: not QPU execution, not evidence of quantum advantage, and not a chemistry workflow.</li><li>Not an operational, alarm, safety or medical system. The OES32 stream model does not reproduce fixed-point rounding, saturation, AXI timing or synthesis.</li><li>The stress results describe these generators and this calibration rule only.</li></ul><p>Version 0.1.1 changes metadata and documentation only; code and outputs are as in 0.1.0.</p>",
   "creators": [
     {
       "name": "Brisson, Jean-François",
@@ -11,21 +11,43 @@
       "affiliation": "Spark AI NLP"
     }
   ],
-  "license": "AGPL-3.0-only",
+  "license": "agpl-3.0-only",
   "access_right": "open",
+  "language": "eng",
   "keywords": [
     "telemetry",
-    "anomaly-detection",
+    "anomaly detection",
+    "replay triage",
     "preregistration",
+    "negative results",
     "reproducibility",
-    "synthetic-data",
-    "quantum-computing-education",
-    "variational-quantum-eigensolver",
-    "qaoa",
-    "python",
-    "scientific-software"
+    "synthetic data",
+    "OES-512",
+    "OES32",
+    "quantum computing education",
+    "statevector simulation",
+    "QAOA",
+    "variational quantum eigensolver",
+    "quantum kernel",
+    "Python"
   ],
   "related_identifiers": [
+    {
+      "identifier": "https://github.com/sparkainlp-x/multi-quantum-oes",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://qiskit-community.github.io/qiskit-algorithms/tutorials/02_vqe_advanced_options.html",
+      "relation": "references",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.22985525",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "software"
+    },
     {
       "identifier": "10.5281/zenodo.23071166",
       "relation": "references",
@@ -37,11 +59,7 @@
       "relation": "references",
       "scheme": "doi",
       "resource_type": "software"
-    },
-    {
-      "identifier": "https://github.com/sparkainlp-x/multi-quantum-oes",
-      "relation": "isSupplementTo",
-      "scheme": "url"
     }
-  ]
+  ],
+  "notes": "Evidence status: all telemetry and stress data are SYNTHETIC; quantum results are exact classical simulation (no QPU). H2 Hamiltonian coefficients are from the Qiskit Algorithms tutorial 'Advanced VQE Options' (Apache-2.0); see THIRD_PARTY_NOTICES.md. Related software: oes32-hls (10.5281/zenodo.22985525) contains the C++ HLS streaming triage kernel (v2 algorithm; FPGA synthesis UNRUN); the Python OES32 stream model here follows the earlier v1 logic and differs from it. oes-resilience (10.5281/zenodo.23071166) is a telemetry anomaly-detection benchmark. Commercial licensing: see COMMERCIAL-LICENSE.md."
 }

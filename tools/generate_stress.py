@@ -156,7 +156,8 @@ def main(argv: list[str]) -> int:
     for path, data in outputs:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(data)
-        print(f"Wrote {data.count(b'\n')} frames to {path} sha256={hashlib.sha256(data).hexdigest()}")
+        frames = data.count(b"\n")  # kept outside the f-string so the file runs on Python 3.11
+        print(f"Wrote {frames} frames to {path} sha256={hashlib.sha256(data).hexdigest()}")
     return 0
 
 

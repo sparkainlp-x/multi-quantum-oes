@@ -1,5 +1,16 @@
 {
-  "note": "Recorded before any evaluation of data/stress_replay.jsonl. locked_at values are self-declared; these hashes let a reviewer detect later edits.",
+  "amendments": [
+    {
+      "current_sha256": "58bf772011e58ac150953e07029a5195ab74a659ae36239b8b2d12f808de9da5",
+      "date": "2026-10-02T22:30:00-04:00",
+      "file": "tools/generate_stress.py",
+      "kind": "code-only",
+      "pre_evaluation_sha256": "139151c3d8ef03ac78de07e5fbfeab99b7887b5fba821a47abcf3d17f682c5da",
+      "reason": "Python 3.11 compatibility: moved data.count(b'\\n') out of an f-string expression in main()'s progress message (backslashes in f-string expressions require Python 3.12+). No change to generation logic, seeds or parameters.",
+      "verification": "stress_bytes() and calibration_bytes() are byte-identical to data/stress_replay.jsonl and data/stress_calibration.jsonl (whose hashes above are unchanged) on Python 3.11.16, 3.12.14 and 3.13.5, and identical to the pre-amendment generator's output on 3.12/3.13. Both stress reports regenerate byte-identically."
+    }
+  ],
+  "note": "Recorded before any evaluation of data/stress_replay.jsonl. locked_at values are self-declared; these hashes let a reviewer detect later edits. The sha256 map is the original pre-evaluation record and is never rewritten; later code-only edits are listed under 'amendments'.",
   "recorded_at": "2026-10-02T22:07:30-04:00",
   "sha256": {
     "data/stress_calibration.jsonl": "a52936bb2dcf2a5dc9746b5cb875e3d4f019b56657e1f7ead7548b5e93dc3e04",

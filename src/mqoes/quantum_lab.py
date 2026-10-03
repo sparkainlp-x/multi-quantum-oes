@@ -108,7 +108,7 @@ def toy_kernel_classifier() -> dict[str, Any]:
     results = []
     for query in (0.10, 0.50, 0.90):
         totals = {
-            label: sum(quantum_kernel(query, row["x"]) for row in training if row["label"] == label)
+            label: math.fsum(quantum_kernel(query, row["x"]) for row in training if row["label"] == label)
             for label in ("high", "low")
         }
         prediction = sorted(totals, key=lambda label: (-totals[label], label))[0]

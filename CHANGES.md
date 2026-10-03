@@ -79,3 +79,20 @@ reproduce byte-for-byte.
   Pauli expectations, parameter shift vs finite differences, complex-Hermitian diagonalisation,
   VQE within 1e-6 of exact (and of a closed form), QAOA vs brute force, compilation,
   kernel validity, determinism, and isolation from the detector. The suite is now 72 tests.
+
+## Python 3.11 compatibility fix (2026-10-02)
+- `tools/generate_stress.py`: moved `data.count(b"\n")` out of an f-string expression in the
+  progress message. A backslash inside an f-string expression needs Python 3.12+, so the first CI
+  run failed on 3.11. This is a code-only edit: the generated stress files are byte-identical on
+  3.11, 3.12 and 3.13.
+- `prereg/STRESS_LOCK_MANIFEST.json`: the original pre-evaluation `sha256` map is unchanged. A dated
+  `amendments` entry records the generator's pre-evaluation hash, its new hash, the reason and the
+  verification.
+- `tests/test_stress.py`: data, preregistration and report hashes are still checked strictly. A
+  tool file may differ only through a documented code-only amendment that chains from the
+  recorded hash.
+- `src/mqoes/quantum_lab.py`: the kernel-classifier similarity totals now use `math.fsum` instead of
+  the built-in `sum()`. Python 3.12 changed float `sum()` to compensated summation, so 3.11 gave a
+  last-digit difference in one value of `reports/quantum-toys.json`. `math.fsum` is correctly
+  rounded on every version; the committed report is unchanged and now reproduces byte for byte on
+  3.11, 3.12 and 3.13.

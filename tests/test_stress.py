@@ -61,8 +61,19 @@ class StressGeneratorTests(unittest.TestCase):
 
 class StressPreregistrationTests(unittest.TestCase):
     def test_manifest_hashes_match_files(self):
+        # The sha256 map is the pre-evaluation record. Data, preregistrations and reports must
+        # still match it exactly. A tool file may differ only through a documented, code-only
+        # amendment that chains from the recorded pre-evaluation hash to the current hash.
+        amendments = {a["file"]: a for a in MANIFEST.get("amendments", [])}
+        for rel, a in amendments.items():
+            self.assertTrue(rel.startswith("tools/") and rel.endswith(".py"), f"amendment not allowed for {rel}")
+            self.assertEqual(a["kind"], "code-only")
+            self.assertEqual(a["pre_evaluation_sha256"], MANIFEST["sha256"][rel])
+            self.assertTrue(a["reason"] and a["verification"] and a["date"])
         for rel, digest in MANIFEST["sha256"].items():
-            self.assertEqual(hashlib.sha256((ROOT / rel).read_bytes()).hexdigest(), digest, rel)
+            actual = hashlib.sha256((ROOT / rel).read_bytes()).hexdigest()
+            expected = amendments[rel]["current_sha256"] if rel in amendments else digest
+            self.assertEqual(actual, expected, rel)
 
     def test_fixed_prereg_uses_untuned_example_thresholds(self):
         prereg = load_prereg_bytes((ROOT / "prereg" / "stress_locked.json").read_bytes())

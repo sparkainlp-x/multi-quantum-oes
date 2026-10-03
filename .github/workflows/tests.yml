@@ -1,0 +1,32 @@
+name: tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Unit tests (from the repository root)
+        run: python -m unittest discover -s tests -v
+      - name: Unit tests (from another directory)
+        run: |
+          cd "$RUNNER_TEMP"
+          python -m unittest discover -s "$GITHUB_WORKSPACE/tests"
+      - name: Committed reports reproduce byte for byte
+        run: |
+          set -e
+          python run.py evaluate --input data/synthetic_replay.jsonl --prereg prereg/example_locked.json | cmp - reports/synthetic-report.json
+          python run.py stream32 | cmp - reports/oes32-stream.json
+          python run.py outage | cmp - reports/outage-snapshot.json
+          python run.py capsule | cmp - reports/capsule-validation.json
+          python run.py quantum | cmp - reports/quantum-toys.json
+          python run.py evaluate --input data/stress_replay.jsonl --prereg prereg/stress_locked.json | cmp - reports/stress-report-fixed-0.50.json
+          python run.py evaluate --input data/stress_replay.jsonl --prereg prereg/stress_calibrated_locked.json | cmp - reports/stress-report-calibrated.json
+          python run.py intersection --output "$RUNNER_TEMP/intersection.json" > /dev/null
+          cmp "$RUNNER_TEMP/intersection.json" reports/intersection.json
+          python tools/generate_stress.py --check

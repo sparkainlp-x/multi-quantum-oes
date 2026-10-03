@@ -1,0 +1,13 @@
+{
+  "note": "Recorded before any evaluation of data/stress_replay.jsonl. locked_at values are self-declared; these hashes let a reviewer detect later edits.",
+  "recorded_at": "2026-10-02T22:07:30-04:00",
+  "sha256": {
+    "data/stress_calibration.jsonl": "a52936bb2dcf2a5dc9746b5cb875e3d4f019b56657e1f7ead7548b5e93dc3e04",
+    "data/stress_replay.jsonl": "2d7b71f1283ac32fc21ccf5b2ecdce139d9f725854dd8d8bdb1ee6e7325682eb",
+    "prereg/stress_calibrated_locked.json": "cc663d92773337ac27fa2e78be2d40fb07cf66b9b7ecedef0f0c83d097069c92",
+    "prereg/stress_locked.json": "40d52a32fe450336d9cacc8d317eabd81451fa8cd3831d68228204c3d7af321b",
+    "reports/stress-calibration.json": "6547f69b8bba4bd85198ed32233b48f884f5aa7c2132f4f9e735c746f6899a66",
+    "tools/calibrate_stress.py": "37f8ee5ee014872fe1ce3487b3969a2ad7732d6cd29da8522df62656aa0a0056",
+    "tools/generate_stress.py": "139151c3d8ef03ac78de07e5fbfeab99b7887b5fba821a47abcf3d17f682c5da"
+  }
+}

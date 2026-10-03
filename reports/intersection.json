@@ -1,0 +1,52 @@
+{
+  "chemical_ai": {
+    "abs_error": 4.441e-16,
+    "exact_ground_energy": -1.8572750302,
+    "reference_state_energy": -1.8369679912,
+    "source": "https://qiskit-community.github.io/qiskit-algorithms/tutorials/02_vqe_advanced_options.html",
+    "system": "H2 at 0.735 Å, 2-qubit Hamiltonian (5 Pauli terms) from the Qiskit tutorials",
+    "units": "hartree (as given by the source operator)",
+    "vqe_energy": -1.8572750302,
+    "vqe_theta": -0.2235369974
+  },
+  "circuit_synthesis_compilation": {
+    "compiled": [
+      "RZ[1](0.75)",
+      "RZZ[0, 1](0.5)",
+      "CZ[0, 1]"
+    ],
+    "full_unitary_equivalent_up_to_global_phase": true,
+    "gate_count_after": 3,
+    "gate_count_before": 15,
+    "sanity_check_faulty_compile_detected": true
+  },
+  "core": "n-qubit statevector · H X Z RX RY RZ CNOT CZ RZZ · Pauli sums · parameter-shift descent",
+  "disclaimer": "Exact classical statevector simulation of toy problems; not a QPU run, not evidence of quantum advantage, and not connected to the OES detector.",
+  "quantum_machine_learning": {
+    "classical_rbf_test_accuracy": 0.90625,
+    "classifier": "kernel nearest-centroid (no fitted weights)",
+    "note": "gamma fixed in advance, not tuned; a toy comparison, not a benchmark",
+    "quantum_kernel_test_accuracy": 0.53125,
+    "rbf_gamma": 1.0,
+    "task": "binary classification of 64 invented 2-D points (32 train / 32 test), label = [sin(x1)*cos(x2) > 0]"
+  },
+  "quantum_optimisation": {
+    "exact_max_cut_brute_force": 5,
+    "optimiser": "16x16 grid for p=1, then parameter-shift gradient descent; p=2 starts from p=1",
+    "problem": "MaxCut on 5 nodes, edges [(0, 1), (1, 2), (2, 3), (3, 4), (4, 0), (0, 2)]",
+    "qaoa": {
+      "p=1": {
+        "approximation_ratio": 0.8220137769,
+        "expected_cut": 4.1100688845,
+        "probability_of_an_optimal_cut": 0.4147776756
+      },
+      "p=2": {
+        "approximation_ratio": 0.9246859523,
+        "expected_cut": 4.6234297613,
+        "probability_of_an_optimal_cut": 0.7070512736
+      }
+    },
+    "random_assignment_expected_cut": 3.0
+  },
+  "title": "AI ∩ Quantum Computing: one statevector core, four applications"
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "software": {
+    "name": "sample-monitor",
+    "version": "2.4.1"
+  },
+  "configuration": {
+    "version": "profile-r7"
+  },
+  "timestamp_policy": {
+    "policy": "relative_offset_seconds",
+    "value": 0
+  },
+  "device_channel_group": {
+    "device_category": "wearable",
+    "channel_group_category": "inertial"
+  },
+  "event_class": "threshold-transition",
+  "coarse_features": {
+    "duration_bucket": "1-2s",
+    "peak_level_bucket": "high",
+    "trend_bucket": "rising"
+  },
+  "replay": {
+    "generator": "synthetic-linear-drift-v1",
+    "seed": 417,
+    "recipe": {
+      "points": 32,
+      "baseline": 100.0,
+      "noise_stddev": 0.25,
+      "drift_start": 20,
+      "drift_per_step": 1.0
+    }
+  },
+  "behavior": {
+    "expected": "The alert remains clear while the synthetic baseline is stable.",
+    "observed": "The alert changes state as the synthetic drift increases."
+  },
+  "reproducibility_checklist": {
+    "software_version_recorded": true,
+    "configuration_version_recorded": true,
+    "synthetic_recipe_and_seed_recorded": true,
+    "expected_and_observed_behavior_written": true,
+    "independent_replay_completed": false
+  }
+}

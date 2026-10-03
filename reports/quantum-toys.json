@@ -1,0 +1,186 @@
+{
+  "demos": {
+    "chemical_ai": {
+      "reason": "The supplied discussion provides no specific chemistry target, data, or validated simulation requirement; forcing chemical AI into telemetry triage would be unrelated.",
+      "status": "not_implemented"
+    },
+    "circuit_synthesis_compilation": {
+      "compiled_circuit": [
+        {
+          "angle": 0.30000000000000004,
+          "gate": "RZ"
+        },
+        {
+          "gate": "H"
+        }
+      ],
+      "compiled_gate_count": 2,
+      "equivalent_up_to_global_phase": true,
+      "gate_set": [
+        "H",
+        "X",
+        "RZ"
+      ],
+      "note": "Tiny one-qubit rewrite demonstration; not a device-specific or fault-tolerant compiler.",
+      "original_circuit": [
+        {
+          "gate": "H"
+        },
+        {
+          "gate": "H"
+        },
+        {
+          "angle": 0.4,
+          "gate": "RZ"
+        },
+        {
+          "angle": -0.1,
+          "gate": "RZ"
+        },
+        {
+          "gate": "X"
+        },
+        {
+          "gate": "X"
+        },
+        {
+          "gate": "H"
+        }
+      ],
+      "original_gate_count": 7,
+      "state_probabilities_after": [
+        0.5,
+        0.5
+      ],
+      "state_probabilities_before": [
+        0.5,
+        0.5
+      ]
+    },
+    "quantum_machine_learning": {
+      "feature_map": "|psi(x)> = cos(pi*x/2)|0> + sin(pi*x/2)|1>",
+      "method": "one-qubit fidelity-kernel nearest-class-similarity toy",
+      "note": "Tiny hand-coded simulation on invented scalar examples; not a trained/validated detector, QPU run, or source of operational alerts.",
+      "predictions": [
+        {
+          "class_kernel_similarity_sums": {
+            "high": 0.5464348501250686,
+            "low": 2.8229258190384194
+          },
+          "predicted_label": "low",
+          "query": 0.1
+        },
+        {
+          "class_kernel_similarity_sums": {
+            "high": 2.2097209795773627,
+            "low": 2.317613120760536
+          },
+          "predicted_label": "low",
+          "query": 0.5
+        },
+        {
+          "class_kernel_similarity_sums": {
+            "high": 2.8921968377826115,
+            "low": 0.682386879239464
+          },
+          "predicted_label": "high",
+          "query": 0.9
+        }
+      ],
+      "training_samples": [
+        {
+          "label": "low",
+          "x": 0.05
+        },
+        {
+          "label": "low",
+          "x": 0.2
+        },
+        {
+          "label": "low",
+          "x": 0.35
+        },
+        {
+          "label": "high",
+          "x": 0.7
+        },
+        {
+          "label": "high",
+          "x": 0.85
+        },
+        {
+          "label": "high",
+          "x": 0.95
+        }
+      ]
+    },
+    "quantum_optimization": {
+      "classical_greedy_bit_flip": {
+        "bits": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "energy": -4.0,
+        "flips": 2,
+        "starting_bits": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "exact_exhaustive": {
+        "assignments_evaluated": 16,
+        "bits": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "cut_edges": 4,
+        "energy": -4.0
+      },
+      "note": "Exact enumeration is practical here because the toy has four binary variables. No quantum optimizer or quantum advantage is demonstrated.",
+      "problem": "four-node unweighted max-cut encoded as a QUBO; minimize negative cut size",
+      "qubo": {
+        "linear": [
+          -3.0,
+          -2.0,
+          -3.0,
+          -2.0
+        ],
+        "quadratic_terms": [
+          {
+            "coefficient": 2.0,
+            "i": 0,
+            "j": 1
+          },
+          {
+            "coefficient": 2.0,
+            "i": 1,
+            "j": 2
+          },
+          {
+            "coefficient": 2.0,
+            "i": 2,
+            "j": 3
+          },
+          {
+            "coefficient": 2.0,
+            "i": 3,
+            "j": 0
+          },
+          {
+            "coefficient": 2.0,
+            "i": 0,
+            "j": 2
+          }
+        ]
+      }
+    }
+  },
+  "not_used_for_triage": true,
+  "scope": "isolated educational toy simulations; no QPU, external service, or operational OES input/output"
+}

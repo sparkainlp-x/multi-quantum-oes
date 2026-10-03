@@ -1,0 +1,11 @@
+{
+  "tau_sensitivity": 0.8,
+  "rate_limit_threshold": 0.5,
+  "reset_state": true,
+  "packets": [
+    {"data_value": 0.25, "is_shock": false},
+    {"data_value": 0.8, "is_shock": false},
+    {"data_value": 0.1, "is_shock": true},
+    {"data_value": 0.2, "is_shock": false}
+  ]
+}

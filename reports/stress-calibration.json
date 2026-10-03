@@ -1,0 +1,26 @@
+{
+  "allowed_false_positive_frames": 13,
+  "alpha": 0.05,
+  "baseline": {
+    "calibration_fp_frames": 13,
+    "kth_plus_one_largest_statistic": 1.42640338,
+    "threshold": 1.4265
+  },
+  "calibration_input": {
+    "frame_count": 320,
+    "no_event_frame_count": 272,
+    "path": "data/stress_calibration.jsonl",
+    "sha256": "a52936bb2dcf2a5dc9746b5cb875e3d4f019b56657e1f7ead7548b5e93dc3e04"
+  },
+  "candidate": {
+    "calibration_fp_frames": 13,
+    "kth_plus_one_largest_statistic": 0.7435912553214994,
+    "threshold": 0.7436
+  },
+  "held_out_split_read": false,
+  "output_prereg": {
+    "path": "prereg/stress_calibrated_locked.json",
+    "sha256": "cc663d92773337ac27fa2e78be2d40fb07cf66b9b7ecedef0f0c83d097069c92"
+  },
+  "rule": "per detector: smallest 4-decimal threshold with pooled no-event frame FP rate <= alpha on the calibration split"
+}

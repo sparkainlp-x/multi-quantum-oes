@@ -1,0 +1,47 @@
+{
+  "title": "Multi-Quantum OES: offline OES replay triage workbench with an isolated AI ∩ quantum toy lab",
+  "upload_type": "software",
+  "version": "0.1.0",
+  "publication_date": "2026-10-02",
+  "description": "<p>Offline, standard-library-only Python workbench for explainable OES-512 replay triage. A fixed block score (0.45&middot;max|x| + 0.35&middot;RMS + 0.20&middot;mean|x|) flags a block when it is &gt;= a preregistered threshold, and is reported alongside a per-block max-abs baseline. The workbench also includes a separate OES32 adaptive-tau stream model and 32-value residual check, offline outage-snapshot classification, metadata-only failure-capsule validation, and a loopback-only local web interface.</p><p>Version 0.1.0 adds hardening fixes with regression tests and a preregistered synthetic stress evaluation (a held-out split plus a separate calibration split). The stress result is negative: the block score does not beat the max-abs baseline at shared fixed thresholds or at thresholds calibrated to an equal false-positive rate. The release also adds a single module in which one exact statevector core powers four toy &ldquo;AI &cap; quantum&rdquo; applications: quantum-kernel classification (at chance on the toy data, versus a classical RBF baseline), QAOA MaxCut versus brute force, circuit compilation with full-unitary verification, and H2 VQE versus exact diagonalisation using coefficients attributed to the Qiskit tutorials (Apache-2.0).</p><p>Synthetic data only. Exact classical simulation, not QPU execution or evidence of quantum advantage, and not an operational system.</p>",
+  "creators": [
+    {
+      "name": "Brisson, Jean-François",
+      "orcid": "0009-0000-9778-5374",
+      "affiliation": "Spark AI NLP"
+    }
+  ],
+  "license": "AGPL-3.0-only",
+  "access_right": "open",
+  "keywords": [
+    "telemetry",
+    "anomaly-detection",
+    "preregistration",
+    "reproducibility",
+    "synthetic-data",
+    "quantum-computing-education",
+    "variational-quantum-eigensolver",
+    "qaoa",
+    "python",
+    "scientific-software"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.23071166",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "10.5281/zenodo.22985521",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://github.com/sparkainlp-x/multi-quantum-oes",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

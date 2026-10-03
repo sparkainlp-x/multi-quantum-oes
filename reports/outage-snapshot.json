@@ -1,0 +1,170 @@
+{
+  "minimum_quorum_sites": 3,
+  "observed_at": "2026-09-30T09:15:00Z",
+  "schema_version": 1,
+  "signals": [
+    {
+      "basis": "Failures are confined to 'west', while 3 site(s) report success. This is a site-local/connectivity-path signal, not a confirmed cause.",
+      "classification": "site-local/connectivity-path",
+      "evidence": {
+        "dependencies": [],
+        "failed_sites": [
+          "west"
+        ],
+        "healthy_sites": [
+          "east",
+          "north",
+          "south"
+        ],
+        "minimum_quorum_sites": 3,
+        "missing_sites": [],
+        "quorum_met": true,
+        "unknown_sites": [],
+        "usable_sites_count": 4
+      },
+      "service": "catalog"
+    },
+    {
+      "basis": "No failures were observed among 4 usable site result(s); the minimum quorum is 3. Missing and unknown probes are listed separately.",
+      "classification": "no observed failure",
+      "evidence": {
+        "dependencies": [],
+        "failed_sites": [],
+        "healthy_sites": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ],
+        "minimum_quorum_sites": 3,
+        "missing_sites": [],
+        "quorum_met": true,
+        "unknown_sites": [],
+        "usable_sites_count": 4
+      },
+      "service": "frontend"
+    },
+    {
+      "basis": "Only 1 site(s) have usable service results, below the 3-site minimum quorum; the failure pattern cannot be classified confidently.",
+      "classification": "insufficient evidence/unknown",
+      "evidence": {
+        "dependencies": [],
+        "failed_sites": [
+          "north"
+        ],
+        "healthy_sites": [],
+        "minimum_quorum_sites": 3,
+        "missing_sites": [
+          "east",
+          "west"
+        ],
+        "quorum_met": false,
+        "unknown_sites": [
+          "south"
+        ],
+        "usable_sites_count": 1
+      },
+      "service": "inventory"
+    },
+    {
+      "basis": "The service and declared dependency 'ledger-db' both failed at 3 sites, meeting the 3-site quorum. This is correlated scope evidence, not proof of cause.",
+      "classification": "dependency-wide",
+      "evidence": {
+        "dependencies": [
+          {
+            "co_failing_service_sites": [
+              "east",
+              "north",
+              "west"
+            ],
+            "dependency": "ledger-db",
+            "failed_sites": [
+              "east",
+              "north",
+              "west"
+            ],
+            "healthy_sites": [
+              "south"
+            ],
+            "missing_sites": [],
+            "unknown_sites": []
+          }
+        ],
+        "failed_sites": [
+          "east",
+          "north",
+          "west"
+        ],
+        "healthy_sites": [
+          "south"
+        ],
+        "minimum_quorum_sites": 3,
+        "missing_sites": [],
+        "quorum_met": true,
+        "unknown_sites": [],
+        "usable_sites_count": 4
+      },
+      "service": "invoicing"
+    },
+    {
+      "basis": "The service and declared dependency 'ledger-db' both failed at 3 sites, meeting the 3-site quorum. This is correlated scope evidence, not proof of cause.",
+      "classification": "dependency-wide",
+      "evidence": {
+        "dependencies": [
+          {
+            "co_failing_service_sites": [
+              "east",
+              "north",
+              "west"
+            ],
+            "dependency": "ledger-db",
+            "failed_sites": [
+              "east",
+              "north",
+              "west"
+            ],
+            "healthy_sites": [
+              "south"
+            ],
+            "missing_sites": [],
+            "unknown_sites": []
+          }
+        ],
+        "failed_sites": [
+          "east",
+          "north",
+          "west"
+        ],
+        "healthy_sites": [
+          "south"
+        ],
+        "minimum_quorum_sites": 3,
+        "missing_sites": [],
+        "quorum_met": true,
+        "unknown_sites": [],
+        "usable_sites_count": 4
+      },
+      "service": "payments"
+    },
+    {
+      "basis": "Service failures were observed at 4 sites, meeting the 3-site quorum. This describes observed scope, not a confirmed cause.",
+      "classification": "likely service-wide",
+      "evidence": {
+        "dependencies": [],
+        "failed_sites": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ],
+        "healthy_sites": [],
+        "minimum_quorum_sites": 3,
+        "missing_sites": [],
+        "quorum_met": true,
+        "unknown_sites": [],
+        "usable_sites_count": 4
+      },
+      "service": "search"
+    }
+  ]
+}

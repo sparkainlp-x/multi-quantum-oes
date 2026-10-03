@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-09-30T09:15:00Z",
+  "sites": ["east", "north", "south", "west"],
+  "minimum_quorum_sites": 3,
+  "services": [
+    {"id": "catalog", "dependencies": []},
+    {"id": "frontend", "dependencies": []},
+    {"id": "inventory", "dependencies": []},
+    {"id": "invoicing", "dependencies": ["ledger-db"]},
+    {"id": "payments", "dependencies": ["ledger-db"]},
+    {"id": "search", "dependencies": []}
+  ],
+  "service_checks": [
+    {"site": "east", "service": "catalog", "status": "ok"},
+    {"site": "north", "service": "catalog", "status": "ok"},
+    {"site": "south", "service": "catalog", "status": "ok"},
+    {"site": "west", "service": "catalog", "status": "fail"},
+
+    {"site": "east", "service": "frontend", "status": "ok"},
+    {"site": "north", "service": "frontend", "status": "ok"},
+    {"site": "south", "service": "frontend", "status": "ok"},
+    {"site": "west", "service": "frontend", "status": "ok"},
+
+    {"site": "north", "service": "inventory", "status": "fail"},
+    {"site": "south", "service": "inventory", "status": "unknown"},
+
+    {"site": "east", "service": "invoicing", "status": "fail"},
+    {"site": "north", "service": "invoicing", "status": "fail"},
+    {"site": "south", "service": "invoicing", "status": "ok"},
+    {"site": "west", "service": "invoicing", "status": "fail"},
+
+    {"site": "east", "service": "payments", "status": "fail"},
+    {"site": "north", "service": "payments", "status": "fail"},
+    {"site": "south", "service": "payments", "status": "ok"},
+    {"site": "west", "service": "payments", "status": "fail"},
+
+    {"site": "east", "service": "search", "status": "fail"},
+    {"site": "north", "service": "search", "status": "fail"},
+    {"site": "south", "service": "search", "status": "fail"},
+    {"site": "west", "service": "search", "status": "fail"}
+  ],
+  "dependency_checks": [
+    {"site": "east", "dependency": "ledger-db", "status": "fail"},
+    {"site": "north", "dependency": "ledger-db", "status": "fail"},
+    {"site": "south", "dependency": "ledger-db", "status": "ok"},
+    {"site": "west", "dependency": "ledger-db", "status": "fail"}
+  ]
+}

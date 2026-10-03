@@ -1,0 +1,86 @@
+{
+  "adaptive_tau_observations": [
+    0.8,
+    0.793,
+    0.8140350000000001,
+    0.81333325
+  ],
+  "contract": "OES32 adaptive-tau packet routing (float-level software model)",
+  "model_limits": [
+    "Python float-level equation model only; no FPGA, AXI transport, timing, synthesis, or bit-exact fixed-point validation.",
+    "The code snippet's missing typedef/header details prevent an exact data-width and rounding model.",
+    "Input/output values here are illustrative numbers, not recorded device telemetry."
+  ],
+  "packet_trace": [
+    {
+      "adaptive_tau_after": 0.8,
+      "adaptive_tau_before": 0.8,
+      "data_value": 0.25,
+      "is_shock": false,
+      "packet_index": 0,
+      "rate_limit_threshold": 0.5,
+      "route": "primary",
+      "routing_reason": "weighted value <= threshold",
+      "weighted_value": 0.2
+    },
+    {
+      "adaptive_tau_after": 0.793,
+      "adaptive_tau_before": 0.8,
+      "data_value": 0.8,
+      "is_shock": false,
+      "packet_index": 1,
+      "rate_limit_threshold": 0.5,
+      "route": "residual",
+      "routing_reason": "weighted value > threshold",
+      "weighted_value": 0.6400000000000001
+    },
+    {
+      "adaptive_tau_after": 0.8140350000000001,
+      "adaptive_tau_before": 0.793,
+      "data_value": 0.1,
+      "is_shock": true,
+      "packet_index": 2,
+      "rate_limit_threshold": 0.5,
+      "route": "residual",
+      "routing_reason": "shock flag",
+      "weighted_value": 0.07930000000000001
+    },
+    {
+      "adaptive_tau_after": 0.81333325,
+      "adaptive_tau_before": 0.8140350000000001,
+      "data_value": 0.2,
+      "is_shock": false,
+      "packet_index": 3,
+      "rate_limit_threshold": 0.5,
+      "route": "primary",
+      "routing_reason": "weighted value <= threshold",
+      "weighted_value": 0.16280700000000004
+    }
+  ],
+  "parameters": {
+    "rate_limit_threshold": 0.5,
+    "reset_state": true,
+    "tau_sensitivity": 0.8
+  },
+  "primary_stream": [
+    {
+      "data_value": 0.25,
+      "is_shock": false
+    },
+    {
+      "data_value": 0.2,
+      "is_shock": false
+    }
+  ],
+  "residual_stream": [
+    {
+      "data_value": 0.8,
+      "is_shock": false
+    },
+    {
+      "data_value": 0.1,
+      "is_shock": true
+    }
+  ],
+  "scope": "separate from OES-512 weighted replay scoring and OES32-residual pairwise comparison"
+}

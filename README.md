@@ -189,7 +189,7 @@ This repository was rebuilt from files shared by Samsung Quick Share. Every file
 
 ## Citation
 
-See [CITATION.cff](CITATION.cff); GitHub shows a "Cite this repository" button. Releases are archived on Zenodo under the concept DOI [10.5281/zenodo.23113851](https://doi.org/10.5281/zenodo.23113851), which covers all versions. Each release also gets its own version DOI on Zenodo; v0.1.0 is [10.5281/zenodo.23113852](https://doi.org/10.5281/zenodo.23113852). Cite a version DOI when you need to refer to exact code.
+See [CITATION.cff](CITATION.cff); GitHub shows a "Cite this repository" button. Releases are archived on Zenodo under the concept DOI [10.5281/zenodo.23113851](https://doi.org/10.5281/zenodo.23113851), which covers all versions. Each release also gets its own version DOI on Zenodo: v0.1.1 (enriched metadata and citation docs) is [10.5281/zenodo.23117526](https://doi.org/10.5281/zenodo.23117526), and v0.1.0 is [10.5281/zenodo.23113852](https://doi.org/10.5281/zenodo.23113852). Cite a version DOI when you need to refer to exact code.
 
 ### How to cite
 

@@ -111,3 +111,5 @@ No code, data, preregistration or report changed; all reports still reproduce by
   "unchanged" now points to its listed edits.
 - `CITATION.cff`: version 0.1.1, dated 2026-10-03, with updated keywords and an oes32-hls
   reference.
+- After release: v0.1.1 was archived on Zenodo as version DOI 10.5281/zenodo.23117526 (concept
+  DOI 10.5281/zenodo.23113851). It was added to `CITATION.cff` and `README.md`, with no further release.

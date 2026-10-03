@@ -12,8 +12,14 @@ date-released: "2026-10-03"
 doi: 10.5281/zenodo.23113851
 identifiers:
   - type: doi
+    value: 10.5281/zenodo.23117526
+    description: "Version DOI for v0.1.1 (Zenodo record 23117526)"
+  - type: doi
     value: 10.5281/zenodo.23113852
     description: "Version DOI for v0.1.0 (Zenodo record 23113852)"
+  - type: doi
+    value: 10.5281/zenodo.23113851
+    description: "Concept DOI (all versions, Zenodo)"
 license: AGPL-3.0-only
 repository-code: "https://github.com/sparkainlp-x/multi-quantum-oes"
 url: "https://sparkainlpx.xyz"

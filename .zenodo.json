@@ -61,5 +61,10 @@
       "resource_type": "software"
     }
   ],
-  "notes": "Evidence status: all telemetry and stress data are SYNTHETIC; quantum results are exact classical simulation (no QPU). H2 Hamiltonian coefficients are from the Qiskit Algorithms tutorial 'Advanced VQE Options' (Apache-2.0); see THIRD_PARTY_NOTICES.md. Related software: oes32-hls (10.5281/zenodo.22985525) contains the C++ HLS streaming triage kernel (v2 algorithm; FPGA synthesis UNRUN); the Python OES32 stream model here follows the earlier v1 logic and differs from it. oes-resilience (10.5281/zenodo.23071166) is a telemetry anomaly-detection benchmark. Commercial licensing: see COMMERCIAL-LICENSE.md."
+  "notes": "Evidence status: all telemetry and stress data are SYNTHETIC; quantum results are exact classical simulation (no QPU). H2 Hamiltonian coefficients are from the Qiskit Algorithms tutorial 'Advanced VQE Options' (Apache-2.0); see THIRD_PARTY_NOTICES.md. Related software: oes32-hls (10.5281/zenodo.22985525) contains the C++ HLS streaming triage kernel (v2 algorithm; FPGA synthesis UNRUN); the Python OES32 stream model here follows the earlier v1 logic and differs from it. oes-resilience (10.5281/zenodo.23071166) is a telemetry anomaly-detection benchmark. Commercial licensing: see COMMERCIAL-LICENSE.md.",
+  "communities": [
+    {
+      "identifier": "spark-ai-nlp"
+    }
+  ]
 }
